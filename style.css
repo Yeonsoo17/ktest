@@ -113,6 +113,7 @@ a{
 #pola3{
     position: relative;
     left: 30px;
+    z-index: 1; 
 }
 #pola4{
     position: relative;
@@ -139,4 +140,38 @@ a{
     text-align: center;
     margin-top: 50px;
     color: darkgray;
+}
+
+
+
+.c-container{
+    display: grid;
+    grid-template-areas: 
+        "c-header"
+        "c-main"
+        "c-footer";
+}
+.c-header{
+    grid-area: c-header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.c-header .logo{
+    width: 100%;    /*알아서 설정*/
+}
+.c-header .카테고리클래스{
+    display: flex;
+    align-items: center;
+}
+.c-header .logo{
+    width: 100%;    /*알아서 설정*/
+}
+.c-main{
+    grid-area: c-main;
+    justify-content: center;
+}
+.c-footer{
+    grid-area: c-footer;
 }

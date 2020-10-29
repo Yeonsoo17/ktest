@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KHome2020</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="room-container">
+       <div class="room-header">
+           <img id="logo-img" src="images/logo.png">
+       </div>
+       <div class="room-main">
+           <img id="room-img" src="images/room0.png">
+       </div>
+       <div class="category">
+           <table id="room-table">
+               <tr>
+                   <td id="category-tb" onclick="change(1)">카테고리1</td>
+                   <td><img class="arrowimg" id="arrow1" src="images/tarrow.png" onclick="goPage(1)"></td>
+               </tr>
+               <tr>
+                   <td id="category-tb" onclick="change(2)">카테고리2</td>
+                   <td><img class="arrowimg" id="arrow2" src="images/tarrow.png" onclick="goPage(2)"></td>
+               </tr>
+               <tr>
+                   <td id="category-tb" onclick="change(3)">카테고리3</td>
+                   <td><img class="arrowimg" id="arrow3" src="images/tarrow.png" onclick="goPage(3)"></td>
+               </tr>
+               <tr>
+                   <td id="category-tb" onclick="change(4)">카테고리4</td>
+                   <td><img class="arrowimg" id="arrow4" src="images/tarrow.png" onclick="goPage(4)"></td>
+               </tr>
+               <tr>
+                   <td id="category-tb" onclick="change(5)">카테고리5</td>
+                   <td><img class="arrowimg" id="arrow5" src="images/tarrow.png" onclick="goPage(5)"></td>
+                   
+               </tr>
+           </table>
+       </div>
+       <div class="footer">
+           <p>Copyright (C) 2020 C.C.tv all rights reserved.</p>
+       </div>
+   </div>
+   
+   <script>
+       var flag = false; /*원본이면 false상태 true가 되면 카테고리 버튼 활성화 된 상태*/
+       var prevNum = 0;
+
+       function change(n) {
+           if (flag == false) { //방이 원본
+               if (prevNum != n) { //초기상태
+                   flag = true;
+                   document.getElementById("arrow" + n).style.visibility = "visible"; //화살표 보임
+                   /*document.getElementById("arrow" + n).cursor = "point"; //클릭하는 모양*/
+                   document.getElementById("room-img").src = "images/room" + n + ".png"; //해당 카테고리 방으로 변경
+                   prevNum = n; //클릭한 카테고리 저장
+               } else if (prevNum == n) { //방 원본인데 정상접근
+                   flag = true;
+                   document.getElementById("arrow" + n).style.visibility = "visible";
+                   /*document.getElementById("arrow" + n).cursor = "point"; //클릭하는 모양*/
+                   document.getElementById("room-img").src = "images/room" + n + ".png";
+                   prevNum = n; //클릭한 카테고리 저장
+               }
+           } else if (flag = true) { //방이 클릭되어있음
+               if (prevNum == n) { //눌렀던 방 안끔
+                   flag = false;
+                   document.getElementById("arrow" + n).style.visibility = "hidden"; //화살표 숨김
+                   /*document.getElementById("arrow" + n).cursor = "default"; //기본 모양*/
+                   document.getElementById("room-img").src = "images/room0.png"; //원본으로 변경
+                   prevNum = n;
+               } else if (prevNum != n) { //방 바뀐 상태에서 안끄고 다른데 누름
+                   //플래그는 트루로 냅둠. 다른 카테고리 방 켜지니까
+                   document.getElementById("arrow" + prevNum).style.visibility = "hidden"; //이전에 눌린 카테고리 화살표 꺼줌
+                   /*document.getElementById("arrow" + prevNum).cursor = "default"; //기본 모양*/
+                   document.getElementById("arrow" + n).style.visibility = "visible"; //새로 눌린 카테고리 화살표 켜줌
+                   /*document.getElementById("arrow" + n).cursor = "point"; //클릭하는 모양*/
+                   document.getElementById("room-img").src = "images/room" + n + ".png";
+                   prevNum = n; //카테고리 넘버 저장
+               }
+           }
+       }
+       
+       function goPage(m){
+           if(document.getElementById("arrow"+m).style.visibility == "visible"){
+               location.href = "polapage.html";
+           }
+           else if(document.getElementById("arrow"+m).style.visibility != "hidden"){
+               /*안채워도 알아서 돌아가서 그냥 냅둠..*/
+           }
+       }
+   </script>
+</body>
+</html>

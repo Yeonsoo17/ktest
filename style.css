@@ -1,0 +1,142 @@
+body{
+    background-color: #f7f6f7;
+}
+a{
+    text-decoration: none;
+}
+/*방 페이지*/
+.room-container{
+    display: grid;
+    grid-template-areas: 
+        "room-header room-header"
+        "room-main category"
+        "footer footer";
+    grid-template-columns: 2fr 1fr;    /*가로 비율 2:1*/
+    grid-row-gap: 10px;
+    grid-column-gap: 20px;
+    align-items: stretch;
+    user-select: none;    /*선택시 드래그 안됨*/
+}
+.room-header{
+    grid-area: room-header;
+    height: 70px;    /*조절 필요*/
+    position: static;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+#logo-img{
+    height: 70px;
+    cursor: pointer;
+}
+.room-main{
+    grid-area: room-main;
+    margin: 30px;
+    padding-left: 30px;
+}
+#room-img{
+    max-width: 100%;
+}
+.category{
+    grid-area: category;
+}
+#room-table{
+    font-size: 30px;
+    font-weight: bold;
+    border-spacing: 1em 1.5em;
+}
+#category-tb:hover{
+    color: gray;
+    transform: scale(0.97);
+    transition: 0.3s;
+    cursor: pointer;
+}
+#room-table td{
+    vertical-align: middle;
+    /*cursor: pointer;*/
+}
+#room-table img{
+    width: 50px;
+    vertical-align: middle;
+    visibility: hidden;
+    cursor: default;
+}
+#room-table img:hover{
+    cursor: pointer;
+}
+.footer{
+    grid-area: footer;
+    text-align: center;
+    color: darkgray;
+}
+
+/*폴라로이드 페이지*/
+.pola-container{
+    display: block;
+    grid-template-areas: 
+        "header"
+        "pola-main"
+        "footer";
+}
+.pola-header{
+    grid-area: pola-header;
+    position: static;
+}
+.pola-main{
+    grid-area: pola-main;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+}
+.pola-item{
+    transition: 0.5s;
+    border: 3px solid black;
+    box-shadow: 20px 20px 10px #4d4d4e;
+    margin: 10px;
+    width: 360px;
+    padding: 10px 20px 10px 20px;
+}
+.pola-item:hover{
+    transform: scale(0.95);
+}
+/*포지션이 relative인 상태에서 top, right, bottom, left + z-index로 설정하는게 괜찮을 것 같아서 이렇게 설정했음*/
+#pola1{
+    position: relative;
+    top: 30px;
+}
+#pola2{
+    position: relative;
+    z-index: 1;                /*위로 올라오는거*/
+    /*align-self: flex-end;*/      /*세로위치 설정*/
+    right: 12px;
+}
+#pola3{
+    position: relative;
+    left: 30px;
+}
+#pola4{
+    position: relative;
+    /*align-self: flex-start;*/    /*세로위치 설정*/
+    bottom: 10px
+}
+#pola-img{
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+}
+.pola-title{
+    font-size: 24pt;
+    text-decoration: none;
+    color: black;
+}
+.caption{
+    font-size: 16pt;
+    text-decoration: none;
+    color: black;
+}
+.pola-footer{
+    grid-area: pola-footer;
+    text-align: center;
+    margin-top: 50px;
+    color: darkgray;
+}

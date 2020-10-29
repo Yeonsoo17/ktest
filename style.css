@@ -95,6 +95,7 @@ a{
     margin: 10px;
     width: 360px;
     padding: 10px 20px 10px 20px;
+    background-color: white;
 }
 .pola-item:hover{
     transform: scale(0.95);
@@ -118,7 +119,8 @@ a{
 #pola4{
     position: relative;
     /*align-self: flex-start;*/    /*세로위치 설정*/
-    bottom: 10px
+    bottom: 10px;
+    z-index: 0;
 }
 #pola-img{
     width: 100%;
